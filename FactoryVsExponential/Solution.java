@@ -2,15 +2,20 @@ import java.util.*;
 import java.io.*;
 import java.math.*;
 
-public class FactorilaVsExponential {
-    public static void main(String[] args) {
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution {
 
+    public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int K = in.nextInt();
         double[] values = new double[K];
         double valueTmp;
-        int factorielTmp;
-        int puissanceTmp;
+        float factorielTmp;
+        float puissanceTmp;
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < K; i++) {
             float A = in.nextFloat();
@@ -20,9 +25,9 @@ public class FactorilaVsExponential {
         for (int i = 0; i < values.length; i++) {
             valueTmp = values[i];
 
-            System.err.println("Traitement : " + valueTmp);
+            System.err.println("\nTraitement : " + valueTmp);
 
-            int cpt = 0;
+            float cpt = 0;
             while (cpt != -1) {
 
                 factorielTmp = calculFactoriel(cpt);
@@ -30,35 +35,33 @@ public class FactorilaVsExponential {
 
                 System.err.println("\t" + puissanceTmp + " < " + factorielTmp);
                 if (puissanceTmp < factorielTmp) {
-                    System.out.print(cpt);
+                    System.err.println("find : " + (int) cpt);
+                    result.append((int) cpt);
                     break;
                 }
-                cpt++;
+                cpt ++;
             }
-            System.out.print(" ");
+            result.append(" ");
         }
+
+        System.out.println(result.toString().trim());
+
     }
 
-    public static int calculPuissance(double value, double puissance) {
+    public static int calculPuissance (double value, double puissance) {
         int sum = 0;
 
         sum = (int) Math.pow(value, puissance);
 
         return sum;
+
     }
 
-    public static int calculFactoriel(int value) {
-        int result = 1;
-
-        if (value > 0) {
-            for (int i = 1; i <= value; i++) {
-                result *= value;
-            }
+    public static float calculFactoriel(float value) {
+        if (value == 0) {
+            return(1);
+        } else {
+            return(value * calculFactoriel(value-1));
         }
-
-        System.err.print("\ncalculFactoriel " + value + " ! ");
-        System.err.println("\t==> " + result);
-
-        return result;
     }
 }
