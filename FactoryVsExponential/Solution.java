@@ -2,6 +2,8 @@ import java.util.*;
 import java.io.*;
 import java.math.*;
 
+// https://www.codingame.com/training/hard/factorial-vs-exponential
+
 /**
  * Auto-generated code below aims at helping you parse
  * the standard input according to the problem statement.
